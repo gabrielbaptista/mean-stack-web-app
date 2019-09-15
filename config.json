@@ -1,0 +1,4 @@
+﻿{
+    "apiUrl": "http://localhost:9050/api",
+    "secret": "APP SECRET"
+}
