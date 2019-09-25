@@ -4,16 +4,18 @@
     <meta charset="utf-8" />
     <title>MEAN Stack User Registration and Login Example Application</title>
 
-    <link href="/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+    <!--link href="/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" /-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="app-content/app.css" rel="stylesheet" />
 </head>
 <body class="container">
     <!-- header -->
     <header>
         <ul class="nav nav-tabs">
-            <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
-            <li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
-            <li><a href="/login" target="_self">Logout</a></li>
+            <li class="nav-item"><a ui-sref="home" class="nav-link" ng-class="{active: activeTab === 'home'}">Home</a></li>
+            <li class="nav-item"><a ui-sref="account" class="nav-link" ng-class="{active: activeTab === 'account'}">Account</a></li>
+            <li class="nav-item"><a ui-sref="stock" class="nav-link" ng-class="{active: activeTab === 'stock'}">Stock</a></li>
+            <li class="nav-item"><a href="/login" target="_self" class="nav-link">Logout</a></li>
         </ul>
         <div class="flash-message" ng-if="flash">
             <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
@@ -30,12 +32,18 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!-- application scripts -->
     <script src="app.js"></script>
     <script src="app-services/user.service.js"></script>
+    <script src="app-services/stock.service.js"></script>
     <script src="app-services/flash.service.js"></script>
     <script src="home/index.controller.js"></script>
     <script src="account/index.controller.js"></script>
+    <script src="stock/index.controller.js"></script>
+    
+    
 </body>
 </html>

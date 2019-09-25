@@ -5,3 +5,12 @@
 .flash-message {
     margin-top: 20px;
 }
+.m100
+{
+    min-width: 100px;
+}
+
+.m75
+{
+    min-width: 75px;
+}

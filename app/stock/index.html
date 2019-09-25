@@ -1,0 +1,167 @@
+﻿<h1>Stock</h1>
+<table class="table table-striped table-hover table-sm">
+    <thead>
+        <th scope="col">Código</th>
+        <th scope="col">Data</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Características</th>
+        <th scope="col">Tamanho</th>
+        <th scope="col">Cor</th>
+        <th scope="col">Valor Etiqueta</th>
+        <th scope="col">Valor Compra</th>
+        <th scope="col">Margem 100%</th>
+        <th scope="col">Preço Sugerido</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="row in vm.contents">
+            <td scope="row">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" ng-model="row.code.value" ng-blur="vm.updateQueue($index, 'code')">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm">
+                    <input type="date" class="form-control" ng-model="row.date.value" ng-blur="vm.updateQueue($index, 'date')">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control m100" ng-model="row.type.value" ng-blur="vm.updateQueue($index, 'type')">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control m100" ng-model="row.brand.value" ng-blur="vm.updateQueue($index, 'brand')">
+                </div>
+            </td>
+            <td data-toggle="popover" data-trigger="hover" title="Modificado por:" data-content={{vm.newRow.char.mod}}>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control m100" ng-model="row.char.value" ng-blur="vm.updateQueue($index, 'char')">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" ng-model="row.size.value" ng-blur="vm.updateQueue($index, 'size')">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control m100" ng-model="row.color.value" ng-blur="vm.updateQueue($index, 'color')">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm m100">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">R$</span>
+                    </div>
+                    <input type="text" class="form-control" ng-model="row.tagPrice.value" ng-blur="vm.updateQueue($index, 'tagPrice')">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm m100">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">R$</span>
+                    </div>
+                    <input type="text" class="form-control" ng-model="row.purchasePrice.value" ng-blur="vm.updateQueue($index, 'purchasePrice')">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm m100">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">R$</span>
+                    </div>
+                    <input type="text" class="form-control" disabled ng-model="row.purchasePrice.value*2">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm m100">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">R$</span>
+                    </div>
+                    <input type="text" class="form-control" ng-model="row.suggestedPrice.value" ng-blur="vm.updateQueue($index, 'suggestedPrice')">
+                </div>
+            </td>
+            <td>
+                <button class="btn btn-danger" style="width: 34px; margin-left: 4px" ng-click="vm.deleteStock($index)">-</button>
+            </td>
+        </tr>
+        
+        <tr>
+            <td scope="row">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" ng-model="vm.newRow.code.value">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm">
+                    <input type="date" class="form-control" ng-model="vm.newRow.date.value">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control m100" ng-model="vm.newRow.type.value">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control m100" ng-model="vm.newRow.brand.value">
+                </div>
+            </td>
+            <td data-toggle="popover" data-trigger="hover" title="Modificado por:" data-content={{vm.newRow.char.mod}}>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control m100" ng-model="vm.newRow.char.value">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" ng-model="vm.newRow.size.value">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control m100" ng-model="vm.newRow.color.value">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm m100">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">R$</span>
+                    </div>
+                    <input type="text" class="form-control" ng-model="vm.newRow.tagPrice.value">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm m100">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">R$</span>
+                    </div>
+                    <input type="text" class="form-control" ng-model="vm.newRow.purchasePrice.value">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm m100">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">R$</span>
+                    </div>
+                    <input type="text" class="form-control" disabled ng-model="vm.newRow.purchasePrice.value*2">
+                </div>
+            </td>
+            <td>
+                <div class="input-group input-group-sm m100">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">R$</span>
+                    </div>
+                    <input type="text" class="form-control" ng-model="vm.newRow.suggestedPrice.value">
+                </div>
+            </td>
+            <td>
+                <button class="btn btn-primary" style="width: 34px; margin-left: 4px" ng-click="vm.createStock()">+</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<script>
+    $(function(){$('[data-toggle="popover"]').popover()});
+</script>
